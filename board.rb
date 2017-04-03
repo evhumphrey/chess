@@ -1,5 +1,5 @@
 require_relative 'null_piece'
-
+require 'byebug'
 class Board
 
   attr_reader :grid
@@ -18,6 +18,18 @@ class Board
     @grid[row][col] = value
   end
 
+  def move_piece(start_pos, end_pos)
+    # byebug
+    if self[start_pos].is_a?(NullPiece)
+      raise "No piece here"
+    elsif self[end_pos].is_a?(Piece) && !self[end_pos].is_a?(NullPiece)
+      raise "Cannot move, piece already here"
+      #TODO: check for player
+    end
+    self[end_pos] = self[start_pos]
+    self[start_pos] = NullPiece.new
+  end
+
   # protected
 
   def _make_starting_grid
@@ -34,9 +46,11 @@ class Board
     end
   end
 
+
 end
 
 b = Board.new
 
 b._make_starting_grid
-p b.grid
+b.move_piece([1, 0], [2, 0])
+p b
