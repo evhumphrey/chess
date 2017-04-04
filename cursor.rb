@@ -92,7 +92,6 @@ class Cursor
       @cursor_pos[0] += diff.first
       @cursor_pos[1] += diff.last
     end
-    #TODO: check if new pos in bounds
   end
 
   private
