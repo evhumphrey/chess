@@ -45,6 +45,7 @@ class Display
 end
 
 display = Display.new(Board.new)
+
 # b.move_piece([1, 0], [2, 0])
 
 display.play
