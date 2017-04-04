@@ -47,23 +47,38 @@ class Board
       row.each_with_index do |el, j|
         pos = [i, j]
         case i
-        when 0, 7
+        when 7
           case j
           when 0, 7
-            self[pos] = Rook.new(pos, self)
+            self[pos] = Rook.new(pos, self, :white)
           when 1, 6
-            self[pos] = Knight.new(pos, self)
+            self[pos] = Knight.new(pos, self, :white)
           when 2, 5
-            self[pos] = Bishop.new(pos, self)
+            self[pos] = Bishop.new(pos, self, :white)
           when 3
-            self[pos] = Queen.new(pos, self)
+            self[pos] = Queen.new(pos, self, :white)
           when 4
-            self[pos] = King.new(pos, self)
+            self[pos] = King.new(pos, self, :white)
           end
-        when 2, 6
-          self[pos] = Pawn.new(pos, self)
+        when 0
+          case j
+          when 0, 7
+            self[pos] = Rook.new(pos, self, :black)
+          when 1, 6
+            self[pos] = Knight.new(pos, self, :black)
+          when 2, 5
+            self[pos] = Bishop.new(pos, self, :black)
+          when 3
+            self[pos] = Queen.new(pos, self, :black)
+          when 4
+            self[pos] = King.new(pos, self, :black)
+          end
+        when 6
+          self[pos] = Pawn.new(pos, self, :white)
+        when 1
+          self[pos] = Pawn.new(pos, self, :black)
         else
-          self[pos] = NullPiece.new(nil, nil)
+          self[pos] = NullPiece.new(nil, nil, nil)
         end
       end
     end
