@@ -40,7 +40,7 @@ class Board
   protected
 
   def _make_starting_grid
-   
+
     @grid.each_with_index do |row, i|
 
       row.each_with_index do |el, j|
@@ -77,7 +77,7 @@ class Board
         when 1
           self[pos] = Pawn.new(pos, self, :black)
         else
-          self[pos] = NullPiece.new(nil, nil, nil)
+          self[pos] = NullPiece.instance
         end
       end
     end
