@@ -40,8 +40,7 @@ class Board
   protected
 
   def _make_starting_grid
-    valid_rows = [0, 1, 7, 8]
-
+   
     @grid.each_with_index do |row, i|
 
       row.each_with_index do |el, j|
@@ -87,6 +86,5 @@ class Board
 
 end
 
-b = Board.new
-
-p b
+k = Knight.new([5, 0], Board.new, :white)
+p k.moves([5,0])
