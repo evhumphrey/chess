@@ -6,6 +6,7 @@ class Board
 
   def initialize
     @grid = Array.new(9) { Array.new(9) }
+    self._make_starting_grid
   end
 
   def [](pos)
@@ -30,7 +31,7 @@ class Board
     self[start_pos] = NullPiece.new
   end
 
-  # protected
+  protected
 
   def _make_starting_grid
     valid_rows = [0, 1, 7, 8]
@@ -51,6 +52,5 @@ end
 
 b = Board.new
 
-b._make_starting_grid
 b.move_piece([1, 0], [2, 0])
 p b
