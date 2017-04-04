@@ -2,7 +2,7 @@ require_relative "null_piece"
 
 class Piece
 
-  def initialize(position = nil, board = nil)
+  def initialize(position, board)
     @position = position
     @board = board
   end

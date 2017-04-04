@@ -12,6 +12,7 @@ class Display
   end
 
   def render_board
+    #TODO: render each piece by their symbol, try using unicode
     system("clear")
     @board.grid.each_with_index do |row, i|
       row.each_with_index do |el, j|
@@ -45,7 +46,7 @@ class Display
 end
 
 display = Display.new(Board.new)
-
+p display.board
 # b.move_piece([1, 0], [2, 0])
 
-display.play
+# display.play
