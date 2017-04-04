@@ -7,4 +7,7 @@ class Piece
     @board = board
   end
 
+  def moves
+  end
+
 end

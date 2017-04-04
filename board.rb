@@ -39,7 +39,7 @@ class Board
     @grid.each_with_index do |row, i|
       row.each_with_index do |el, j|
         if valid_rows.include?(i)
-          @grid[i][j] = Piece.new
+          @grid[i][j] = Piece.new([i, j], self)
         else
           @grid[i][j] = NullPiece.new
         end
