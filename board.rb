@@ -1,11 +1,17 @@
 require_relative 'null_piece'
 require 'byebug'
+require_relative 'pawn'
+require_relative 'rook'
+require_relative 'knight'
+require_relative 'bishop'
+require_relative 'queen'
+require_relative 'king'
 class Board
 
   attr_reader :grid
 
   def initialize
-    @grid = Array.new(9) { Array.new(9) }
+    @grid = Array.new(8) { Array.new(8) }
     self._make_starting_grid
   end
 
@@ -37,11 +43,27 @@ class Board
     valid_rows = [0, 1, 7, 8]
 
     @grid.each_with_index do |row, i|
+
       row.each_with_index do |el, j|
-        if valid_rows.include?(i)
-          @grid[i][j] = Piece.new([i, j], self)
+        pos = [i, j]
+        case i
+        when 0, 7
+          case j
+          when 0, 7
+            self[pos] = Rook.new(pos, self)
+          when 1, 6
+            self[pos] = Knight.new(pos, self)
+          when 2, 5
+            self[pos] = Bishop.new(pos, self)
+          when 3
+            self[pos] = Queen.new(pos, self)
+          when 4
+            self[pos] = King.new(pos, self)
+          end
+        when 2, 6
+          self[pos] = Pawn.new(pos, self)
         else
-          @grid[i][j] = NullPiece.new
+          self[pos] = NullPiece.new(nil, nil)
         end
       end
     end
@@ -52,5 +74,4 @@ end
 
 b = Board.new
 
-b.move_piece([1, 0], [2, 0])
 p b
