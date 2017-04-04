@@ -99,8 +99,8 @@ class Cursor
   def in_bounds?(diff)
     x = @cursor_pos[0] + diff.first
     y = @cursor_pos[1] + diff.last
-    return false unless x.between?(0, 8)
-    return false unless y.between?(0, 8)
+    return false unless x.between?(0, 7)
+    return false unless y.between?(0, 7)
     true
   end
 
