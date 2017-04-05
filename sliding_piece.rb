@@ -31,27 +31,7 @@ module SlidingPiece
   def move_dirs
   end
 
-  # def horizontal_dirs
-  # end
-  #
-  # def diagonal_dirs
-  # end
-
   def grow_unblocked_moves(start_pos, dir)
-
-  #   next_pos = [start_pos[0] + dir[0], start_pos[1] + dir[1]]
-  #   return [] if out_of_bounds?(start_pos)
-  #
-  #   unless @board[next_pos].is_a?(NullPiece)
-  #     return [] if @board[next_pos].color == @color
-  #     return start_pos if @board[next_pos].color != @color
-  #   end
-  #
-  #   dir_moves = grow_unblocked_moves(next_pos, dir)
-  #   dir_moves + next_pos
-  #   # grow_unblocked_moves(start_pos, dir)
-  # end
-  #
     dir_moves = []
     current_pos = start_pos.dup
     current_pos[0] += dir.first
