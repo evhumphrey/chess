@@ -86,5 +86,5 @@ class Board
 
 end
 
-k = Knight.new([5, 0], Board.new, :white)
-p k.moves([5,0])
+k = Queen.new([4, 4], Board.new, :white)
+p k.moves([4,4])
